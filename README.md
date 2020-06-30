@@ -1,12 +1,16 @@
-#Teste GlusterFS
+# Teste GlusterFS
 
-Esse é apenas um teste utilizando glusterfs como servidor de arquivos.
-Esta configurado para 3 replicas, utilizando zfs.
+Este repositório tem apenas o fim de estudo sobre o glusterFS.
+As ferramentas que utilizei para criar o ambiente foi o Vagrant c/ VirtualBox, como box o ubuntu/18.04
 
-Para poder utiliza-lo é necessário do virtualbox e vagrant instalados.
+Para utilizar, basta executar o arquivo start.sh
 
-Escute o arquivo start.sh, ele ira realizar uma checkagem se tem todos os pacotes instalados, assim ele ira executar o arquivo Vagrantfile e provisionar as instancias com o arquivo bash script "gluster-install.sh".
+```console
+# ./start.sh
+```
 
-Após inicializado execute o comando "vagrant ssh srv-gluster-01" e ir na pasta /mnt onde esta montado o disco do gluster.
+Ele ira verificar se você possuí os pacotes necessários para iniciar o ambiente (apenas para distros Debian like).
 
-Inclua alguns arquivos e veja nos outros servidores ele sendo replicado.
+As instâncias já estão provisionadas por um arquivo bash script, onde ele vai instalar o zfs + gluster e montar o cluster com 3 replicas, e depois montar no diretório /mnt.
+
+Os briks criados ficam em /gluster-file/vol0, isso em todas as máquinas.
